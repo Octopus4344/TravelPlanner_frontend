@@ -78,7 +78,7 @@ body{
     display: flex;
     gap: 15px;
 }
-button{
+.buttons button{
     align-self: flex-start;
     color: var(--light-text-color);
     background-color: var(--primary-color);
@@ -103,6 +103,12 @@ button:hover{
     color: var(--little-text-color);
     font-size: 16px;
     font-weight: 750;
+}
+.log-in-container{
+    text-align: center;
+}
+.log-in-container h3{
+    padding-bottom: 10px;
 }
 
 @keyframes typing {

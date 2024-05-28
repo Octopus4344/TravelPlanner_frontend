@@ -1,6 +1,9 @@
 import React from 'react';
 import "./styles/WelcomePage_style.css"
+import LoginPage from "./LoginPage";
+import { useNavigate } from 'react-router-dom';
 function WelcomePage() {
+    const navigate = useNavigate();
     return(
         <div className="welcome-page">
                 <div className="left-side">
@@ -14,7 +17,7 @@ function WelcomePage() {
                         </div>
                         <div className="log-in-container">
                             <h3 className="little-text">Already have an account?</h3>
-                            <button className="log-in" onClick={() => WelcomePage()}>Log in</button>
+                            <button className="log-in" onClick={() => navigate('/login')}>Log in</button>
                         </div>
                     </div>
                 </div>
