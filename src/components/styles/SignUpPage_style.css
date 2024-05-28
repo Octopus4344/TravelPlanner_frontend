@@ -1,0 +1,32 @@
+.body{
+    font-family: var(--primary-font), serif;
+}
+
+.SignUpPage{
+    flex: 1;
+    display: flex;
+    height: 100vh;
+    background-color: var(--primary-color);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-left: 50px;
+}
+
+.signup-main-container{
+    background-color: var(--light-background);
+    border-radius: 10px;
+    width: 500px;
+    height: 550px;
+    align-items: center;
+    text-align: center;
+    display: inline-block;
+}
+
+h1{
+    padding-top: 40px;
+    color: var(--dark-text-color);
+    font-weight: 900;
+    font-size: 45px;
+    padding-bottom: 30px;
+}

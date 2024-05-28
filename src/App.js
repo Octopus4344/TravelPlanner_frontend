@@ -1,5 +1,6 @@
 import WelcomePage from './components/WelcomePage';
 import LoginPage from './components/LoginPage';
+import SignUpPage from './components/SignUpPage';
 import {
     BrowserRouter as Router,
     Routes,
@@ -15,6 +16,7 @@ function App() {
         <Routes>
             <Route path="/" element={<WelcomePage/>}/>
             <Route path="/login" element={<LoginPage/>} />
+            <Route path="/signup" element={<SignUpPage/>} />
         </Routes>
     </Router>
   );

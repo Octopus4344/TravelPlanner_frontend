@@ -13,7 +13,7 @@ function WelcomePage() {
                     <div className="buttons">
                         <div className="log-in-container">
                             <h3 className="little-text">Want to check Travel Planner out?</h3>
-                            <button className="get-started" onClick={() => WelcomePage()}>Get started</button>
+                            <button className="get-started" onClick={() => navigate('/signup')}>Get started</button>
                         </div>
                         <div className="log-in-container">
                             <h3 className="little-text">Already have an account?</h3>

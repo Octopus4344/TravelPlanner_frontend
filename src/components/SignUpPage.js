@@ -1,13 +1,22 @@
 import React from 'react';
-import "./styles/LoginPage_style.css"
+import "./styles/SignUpPage_style.css"
 import { useNavigate } from 'react-router-dom';
 
-function LoginPage() {
+function SignUpPage() {
     const navigate = useNavigate();
     return(
-        <div className={"LoginPage"}>
-            <div className={"container"}>
-                <h1>Log In</h1>
+        <div className={"SignUpPage"}>
+            <div className={"signup-main-container"}>
+                <h1>Sign Up</h1>
+                <div className={"login-container"}>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="744" height="470" viewBox="0 0 744 470" fill="none">
+                        <path d="M692.022 0L372 253.264L51.9783 0H692.022Z" fill="#959595"/>
+                        <path
+                            d="M0.611385 9.08378C0.209663 11.3285 0 13.6398 0 16V431C0 452.539 17.4609 470 39 470H705C726.539 470 744 452.539 744 431V16C744 13.6398 743.79 11.3285 743.389 9.08378L372 303L0.611385 9.08378Z"
+                            fill="#959595"/>
+                    </svg>
+                    <input type={"text"} placeholder="E-mail"/>
+                </div>
                 <div className={"login-container"}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="426" height="441" viewBox="0 0 426 441" fill="none">
                         <path fillRule="evenodd" clipRule="evenodd"
@@ -25,9 +34,10 @@ function LoginPage() {
                     <input type={"password"} placeholder="Password"/>
                 </div>
                 <div className={"log-buttons"}>
-                    <button className={"l-log-in"} onClick={LoginPage}>LOGIN</button>
+                    <button className={"l-log-in"} onClick={SignUpPage}>LOGIN</button>
                     <div className={"small-buttons"}>
-                        <h3>Don't have an account yet? <button onClick={() => navigate('/signup')}>Sign up</button> or <button onClick={() => navigate('/')}>Go back</button> </h3>
+                        <h3>Already have an account? <button onClick={() => navigate('/login')}>Log in</button> or <button
+                            onClick={() => navigate('/')}>Go back</button></h3>
                     </div>
                 </div>
             </div>
@@ -35,4 +45,4 @@ function LoginPage() {
     );
 }
 
-export default LoginPage;
+export default SignUpPage;
