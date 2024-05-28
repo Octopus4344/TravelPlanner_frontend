@@ -1,0 +1,117 @@
+*{
+    margin: 0;
+    padding: 0;
+    --primary-color: #4449ae;
+    --light-text-color: azure;
+    --hover-color: #1b2c83;
+    --little-text-color: #9f9f9f;
+    --dark-text-color: #303030;
+    --primary-font: "Arial", sans-serif, bold;
+}
+body{
+    font-family: var(--primary-font), serif;
+
+}
+
+.welcome-page{
+    display: flex;
+    height: 100vh;
+}
+
+.left-side{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-left: 50px;
+}
+.right-side{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+}
+.wave{
+    position: relative;
+}
+
+.wave svg{
+    max-height: 100vw;
+    max-width: 100vw;
+    height: auto;
+    width: auto;
+}
+
+.welcome{
+    text-align: left;
+    justify-content: left;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    place-content: center;
+    display: flex;
+}
+.welcome h1{
+    font-family: "Arial Black", sans-serif, bold;
+    font-size: 50px;
+    display: inline-block;
+    color: var(--dark-text-color);
+}
+.blue-text{
+    color: var(--primary-color);
+    overflow: hidden;
+    border-right: .15em solid var(--primary-color);
+    white-space: nowrap;
+    margin: 0 auto;
+    width: 0;
+    display: inline-block;
+    position: relative;
+    top: 16px;
+    animation:
+        typing 2s steps(14, end) forwards,
+        blink-caret .75s step-end infinite;
+    padding: 0;
+}
+.buttons{
+    padding-top: 40px;
+    display: flex;
+    gap: 15px;
+}
+button{
+    align-self: flex-start;
+    color: var(--light-text-color);
+    background-color: var(--primary-color);
+    font-family: "Arial", sans-serif, bold;
+    width: 325px;
+    height: 55px;
+    font-size: 25px;
+    border: none;
+    border-radius: 20px;
+    text-align: center;
+    cursor: pointer;
+    display: inline-block;
+    transition: 0.3s;
+    gap: 80px;
+    font-weight: 600;
+}
+button:hover{
+    background-color: var(--hover-color);
+}
+
+.little-text{
+    color: var(--little-text-color);
+    font-size: 16px;
+    font-weight: 750;
+}
+
+@keyframes typing {
+    from {width: 0}
+    to {width: 60%}
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: var(--primary-color); }
+}
