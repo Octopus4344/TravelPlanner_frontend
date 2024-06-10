@@ -23,7 +23,7 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    padding-left: 50px;
+    padding-left: 80px;
 }
 .right-side{
     flex: 1;
@@ -32,15 +32,13 @@ body{
     align-content: center;
     justify-content: center;
 }
-.wave{
-    position: relative;
-}
-
-.wave svg{
-    max-height: 100vw;
-    max-width: 100vw;
-    height: auto;
-    width: auto;
+.wave {
+    position: static;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="832" height="1023" viewBox="0 0 832 1023" fill="none"><path d="M217 849.5C107.4 909.5 27 989.834 0.5 1022.5H832.5V0.500021L774.5 0.5L726.5 72.5C659.885 172.423 583 144.5 424 308C296.8 438.8 303 552.5 322 593C332.667 653.5 326.6 789.5 217 849.5Z" fill="%234449AE"/></svg>');
+    height: 100%;
+    width: 100%;
+    background-position: -10%, -60%;
+    background-repeat: no-repeat;
 }
 
 .welcome{
