@@ -1,0 +1,58 @@
+*{
+   --light-blue: #A1A4D8
+}
+
+.user-panel {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100vh;
+    padding: 63px 90px;
+    position: relative;
+    background-size: 800px;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="1110" height="899" viewBox="0 0 1110 899" fill="none"><path d="M0 101C0 45.2192 44.6958 0 99.8308 0H1012.15C1066.19 0 1110 44.3238 1110 99C1110 153.676 1066.19 198 1012.15 198H768.994C713.859 198 669.163 243.219 669.163 299V423C669.163 478.781 624.467 524 569.332 524H518.355C463.22 524 418.525 569.219 418.525 625V798C418.525 853.781 373.829 899 318.694 899H99.8308C44.6958 899 0 853.781 0 798V101Z" fill="%234449AE"/><path d="M1019.27 524C1069.38 524 1110 482.902 1110 432.204C1110 381.507 1069.38 340.409 1019.27 340.409H972.514C922.403 340.409 881.781 381.507 881.781 432.204C881.781 482.902 922.403 524 972.514 524H1019.27Z" fill="%234449AE"/></svg>');
+    background-repeat: no-repeat;
+    background-position: 10%, 80%;
+    box-sizing: border-box;
+}
+.headline {
+    position: absolute;
+    top: 20px;
+    left: 130px;
+    font-size: 80px;
+    font-weight: bold;
+    color: white;
+}
+.circle-buttons{
+    position: absolute;
+    top: 60px;
+    right: 85px;
+    display: flex;
+    gap: 40px;
+}
+.circle-buttons button{
+    background-color: var(--primary-color);
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+    transition: 0.40s;
+}
+.circle-buttons button svg{
+    width: 45px;
+    height: 45px;
+}
+.circle-buttons button:hover {
+    background-color: var(--hover-color);
+}
+.some-text{
+    position: absolute;
+    top: 170px;
+    left: 130px;
+    width: 30px;
+    height: auto;
+    font-size: 50px;
+    color: var(--light-blue);
+}
