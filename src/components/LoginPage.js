@@ -13,6 +13,7 @@ function LoginPage({ setUser }) {
         const user = users.find(user => user.username === username && user.password === password);
         if (user) {
             setUser(user)
+            localStorage.setItem("user", JSON.stringify(user));
             navigate("/user");
         }
         else {

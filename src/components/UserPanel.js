@@ -1,13 +1,35 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import "./styles/UserPanel_style.css"
 import { useNavigate } from 'react-router-dom';
+import {trips, users} from "./mockData";
+import TripList from "./TripList";
 
 function UserPanel({ user, setUser }) {
     const navigate = useNavigate();
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        const storedUser = localStorage.getItem("user");
+        if (storedUser) {
+            setUser(JSON.parse(storedUser));
+        }
+        setIsLoading(false);
+    }, [setUser])
+
+
     const handleLogout = () => {
       setUser(null);
+      localStorage.removeItem("user");
       navigate('/');
     };
+
+    if (!user) {
+        navigate('/login');
+        return null;
+    }
+
+    const userTrips = trips.filter(trip => trip.user === user.id);
+
 
     return(
         <div className="user-panel">
@@ -35,6 +57,9 @@ function UserPanel({ user, setUser }) {
                 </div>
             </div>
             <h3 className={"some-text"}>Where are you travelling today?</h3>
+            <div className={'trip-list-container'}>
+                <TripList trips={userTrips}/>
+            </div>
         </div>
     )
 

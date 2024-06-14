@@ -7,8 +7,11 @@ export const trips = [
     {
         id: 1,
         name: 'Trip to paris',
-        photo: '/img/Placeholder-_-Glossary.svg',
+        photo: 'https://via.placeholder.com/150',
         hotel_coordinates: '',
+        start_time: '07-03-2024',
+        end_time: '07-05-2024',
+        destination: 'Paris',
         user: 1,
         days: [
             {
@@ -45,8 +48,68 @@ export const trips = [
         id: 3,
         name: 'Trip to Tokyo',
             hotel_coordinates: '',
-        photo: '/img/Placeholder-_-Glossary.svg',
+        photo: 'https://via.placeholder.com/150',
             user: 1,
+            start_time: '07-03-2024',
+        end_time: '07-03-2024',
+        destination: 'Tokyo',
+        days: [
+            {
+                day: 1,
+                date: '07-03-2024',
+                details:  [
+                    {time: '09:00', place: 'Shibuya'},
+                    {time: '11:00', place: 'Capsule Hotel'}
+                ]
+            }]
+    },
+    {
+        id: 4,
+        name: 'Trip to Tokyo',
+            hotel_coordinates: '',
+        photo: 'https://via.placeholder.com/150',
+            user: 1,
+            start_time: '07-03-2024',
+        end_time: '07-03-2024',
+        destination: 'Tokyo',
+        days: [
+            {
+                day: 1,
+                date: '07-03-2024',
+                details:  [
+                    {time: '09:00', place: 'Shibuya'},
+                    {time: '11:00', place: 'Capsule Hotel'}
+                ]
+            }]
+    },
+    {
+        id: 5,
+        name: 'Trip to Tokyo',
+            hotel_coordinates: '',
+        photo: 'https://via.placeholder.com/150',
+            user: 1,
+            start_time: '07-03-2024',
+        end_time: '07-03-2024',
+        destination: 'Tokyo',
+        days: [
+            {
+                day: 1,
+                date: '07-03-2024',
+                details:  [
+                    {time: '09:00', place: 'Shibuya'},
+                    {time: '11:00', place: 'Capsule Hotel'}
+                ]
+            }]
+    },
+    {
+        id: 6,
+        name: 'Trip to Tokyo',
+            hotel_coordinates: '',
+        photo: 'https://via.placeholder.com/150',
+            user: 1,
+            start_time: '07-03-2024',
+        end_time: '07-03-2024',
+        destination: 'Tokyo',
         days: [
             {
                 day: 1,
@@ -57,5 +120,6 @@ export const trips = [
                 ]
             }]
     }
+
 
 ]
