@@ -11,10 +11,10 @@ body{
     width: 1400px;
     height: 730px;
     padding: 0;
-    background-size: 800px;
-    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="1110" height="899" viewBox="0 0 1110 899" fill="none"><path d="M0 101C0 45.2192 44.6958 0 99.8308 0H1012.15C1066.19 0 1110 44.3238 1110 99C1110 153.676 1066.19 198 1012.15 198H768.994C713.859 198 669.163 243.219 669.163 299V423C669.163 478.781 624.467 524 569.332 524H518.355C463.22 524 418.525 569.219 418.525 625V798C418.525 853.781 373.829 899 318.694 899H99.8308C44.6958 899 0 853.781 0 798V101Z" fill="%234449AE"/><path d="M1019.27 524C1069.38 524 1110 482.902 1110 432.204C1110 381.507 1069.38 340.409 1019.27 340.409H972.514C922.403 340.409 881.781 381.507 881.781 432.204C881.781 482.902 922.403 524 972.514 524H1019.27Z" fill="%234449AE"/></svg>');
+    background-size: 1000px;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="1433" height="937" viewBox="0 0 1433 937" fill="none"><path d="M0 936.626C85.6206 856.945 303.761 730.282 572.374 794.653C852.171 861.705 826.849 629.02 779.213 504.296C761.305 431.291 766.104 303.142 928.567 374.584C1091.03 446.025 1282.65 303.047 1345.75 203.699C1386.1 140.172 1425.03 36.3681 1433 0H0V936.626Z" fill="%234449AE"/></svg>');
     background-repeat: no-repeat;
-    background-position: 10%, 80%;
+    background-position: 0 0;
     box-sizing: border-box;
     overflow: hidden;
 }
@@ -54,7 +54,7 @@ body{
     position: absolute;
     top: 170px;
     left: 130px;
-    width: 30px;
+    width: 100px;
     height: auto;
     font-size: 50px;
     color: var(--light-blue);
@@ -62,6 +62,6 @@ body{
 .trip-list-container{
     position: absolute;
     bottom: 40px;
-    right: 0;
-    width: 900px;
+    right: 40px;
+    width: 750px;
 }
