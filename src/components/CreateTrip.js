@@ -14,6 +14,7 @@ function CreateTrip({ user, onTripCreated }) {
     const [places, setPlaces] = useState([]);
     const [photo, setPhoto] = useState('');
     const [title, setTitle] = useState('');
+    const [error, setError] = useState('')
 
     const handleDestinationSearch = async (place) => {
         try {
@@ -26,12 +27,12 @@ function CreateTrip({ user, onTripCreated }) {
             const photo = pexelsResponse.data.photos[0]?.src?.medium || 'https://via.placeholder.com/150';
             setDestination(place)
             setPhoto(photo)
-            setStep(3);
+            setStep(2);
         } catch (error) {
             console.error('Error fetching destination or photo', error);
             setPhoto('https://via.placeholder.com/150')
             setDestination(place)
-            setStep(3)
+            setStep(2)
         }
     };
     const handleDateRangeSelect = (startDate, endDate) => {
@@ -89,8 +90,12 @@ function CreateTrip({ user, onTripCreated }) {
                         type="text"
                         placeholder={"Your trip title"}
                         value={title}
-                        onChange = {(e) => { setTitle(e.target.value)}}
+                        onChange = {(e) => {
+                            setTitle(e.target.value)
+                            setError('');
+                        }}
                     />
+                    {error && <p style={{color: 'red'}}>{error}</p>}
                     <SearchDestination onSearch={handleDestinationSearch} />
                 </>
             )}

@@ -20,7 +20,7 @@ const SearchDestination = ({ onSearch }) => {
      return (
          <div>
              <MapboxAutocomplete
-                 publicKey='sk.eyJ1Ijoib2N0b3B1czEiLCJhIjoiY2x4Zjl2YmptMG5sNTJrcXRuNWc0djB5aiJ9.UBsAVMDLpNokf4lX0gJMJA'
+                 publicKey={process.env.REACT_APP_MAPBOX_API_KEY}
                  inputClass='form-control search'
                  onSuggestionSelect={handleSelect}
                  onError={handleError}
