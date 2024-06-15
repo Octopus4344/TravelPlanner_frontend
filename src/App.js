@@ -2,6 +2,7 @@ import WelcomePage from './components/WelcomePage';
 import LoginPage from './components/LoginPage';
 import SignUpPage from './components/SignUpPage';
 import UserPanel from './components/UserPanel';
+import CreateTrip from "./components/CreateTrip";
 import {
     BrowserRouter as Router,
     Routes,
@@ -20,6 +21,7 @@ function App() {
                 <Route path="/login" element={<LoginPage setUser={setUser} />} />
                 <Route path="/signup" element={<SignUpPage setUser={setUser} />} />
                 <Route path="/user" element={<UserPanel user={user} setUser={setUser} />} />
+                <Route path="/create" element={<CreateTrip user={user} onTripCreated={(trip) => console.log(trip)} /> } />
             </Routes>
         </Router>
     );

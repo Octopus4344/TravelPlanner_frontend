@@ -30,6 +30,10 @@ function UserPanel({ user, setUser }) {
 
     const userTrips = trips.filter(trip => trip.user === user.id);
 
+    const handleCreateTrip = () => {
+        navigate('/create');
+    };
+
 
     return(
         <div className="user-panel">
@@ -37,7 +41,7 @@ function UserPanel({ user, setUser }) {
                 <h1 className={'headline'}>Welcome back!</h1>
                 <div className="shape"></div>
                 <div className="circle-buttons">
-                    <button className={'logout'} onClick={handleLogout}>
+                    <button className={'logout'} onClick={handleCreateTrip}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="79" height="79" viewBox="0 0 79 79" fill="none">
                             <path
                                 d="M39.5 0C35.2085 0 31.7295 3.47897 31.7295 7.77049V31.7295H7.77049C3.47897 31.7295 0 35.2085 0 39.5C0 43.7915 3.47897 47.2705 7.77049 47.2705H31.7295V71.2295C31.7295 75.521 35.2085 79 39.5 79C43.7915 79 47.2705 75.521 47.2705 71.2295V47.2705H71.2295C75.521 47.2705 79 43.7915 79 39.5C79 35.2085 75.521 31.7295 71.2295 31.7295H47.2705V7.77049C47.2705 3.47897 43.7915 0 39.5 0Z"
