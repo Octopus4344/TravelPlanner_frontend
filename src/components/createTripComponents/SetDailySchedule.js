@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import TimePicker from 'react-time-picker'
-import MapboxAutocomplete from "react-mapbox-autocomplete";
 import SearchDestination from "./SearchDestination";
 import './style.css'
 
@@ -13,9 +12,13 @@ function SetDailySchedule({ onSet }) {
         onSet(startHour, endHour, startPlace)
     }
 
+    const isNextEnabled = () => {
+        return startHour && startPlace && endHour;
+    }
+
     return (
         <div>
-            <h3>Set daily schedule</h3>
+            <h3 className={'question'}>What time do you plan to start and finish sightseeing? Where is your starting point?</h3>
             <div>
                 <label>Start Hour</label>
                 <TimePicker className={'time-picker'} onChange={setStartHour} value={startHour}/>
@@ -26,9 +29,11 @@ function SetDailySchedule({ onSet }) {
             </div>
             <div>
                 <label>Start place</label>
+                <div className={'login-container'}>
                 <SearchDestination onSearch={setStartPlace}/>
+                </div>
             </div>
-            <button onClick={handleSet}>Next</button>
+            <button disabled={!isNextEnabled()} className={'navButton'} onClick={handleSet}>Next</button>
         </div>
     )
 }

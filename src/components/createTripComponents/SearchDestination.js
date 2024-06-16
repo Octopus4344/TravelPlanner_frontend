@@ -1,5 +1,6 @@
 import React from 'react'
 import MapboxAutocomplete from "react-mapbox-autocomplete";
+import "./style.css"
 
 const SearchDestination = ({ onSearch }) => {
     const handleSelect = (result, lat, lng, text) => {
