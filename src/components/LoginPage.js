@@ -2,23 +2,35 @@ import React, { useState } from 'react';
 import "./styles/LoginPage_style.css"
 import { useNavigate } from 'react-router-dom';
 import { users } from './mockData';
+import axios from "axios";
 
 function LoginPage({ setUser }) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
 
-    const handleLogin = (e) => {
+    const handleLogin = async e => {
         e.preventDefault();
-        const user = users.find(user => user.username === username && user.password === password);
-        if (user) {
-            setUser(user)
-            localStorage.setItem("user", JSON.stringify(user));
-            navigate("/user");
+
+        const user = {
+            username : username,
+            password: password
+        };
+        try {
+            const {data} = await axios.post('http://localhost:8000/api/token',
+                user, {
+                    headers: {
+                        'Content-type': 'application/json',
+                    }
+                });
+            console.log(data)
+            localStorage.setItem("accessToken", data.access)
+            localStorage.setItem("refreshToken", data.refresh)
         }
-        else {
-            alert("invalid username or password");
+        catch (error){
+            console.error("something went wrong", error)
         }
+
     }
 
     return(
