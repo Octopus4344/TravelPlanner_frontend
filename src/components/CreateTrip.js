@@ -10,7 +10,7 @@ import { createClient } from "pexels"
 const pexelsClient = createClient(process.env.REACT_APP_PEXELS_API_KEY)
 
 
-function CreateTrip({ user, onTripCreated, setUser }) {
+function CreateTrip({ onTripCreated }) {
     const navigate = useNavigate();
     const [step, setStep] = useState(1);
     const [destination, setDestination] = useState(null);
@@ -20,13 +20,6 @@ function CreateTrip({ user, onTripCreated, setUser }) {
     const [photo, setPhoto] = useState('');
     const [title, setTitle] = useState('');
     const [error, setError] = useState('')
-
-        useEffect(() => {
-        const storedUser = localStorage.getItem("user");
-        if (storedUser) {
-            setUser(JSON.parse(storedUser));
-        }
-    }, [setUser])
 
     const handleDestinationSearch = async (place) => {
         try {
@@ -70,23 +63,35 @@ function CreateTrip({ user, onTripCreated, setUser }) {
     const handleSubmit = async () => {
         const tripData = {
             title: title,
-            destination: destination,
+            destination: destination.name,
             description: 'Trip to ${destination.place_name}',
-            start_place_longitude: dailySchedule.startPlace.longitude,
             start_place_latitude: dailySchedule.startPlace.latitude,
+            start_place_longitude: dailySchedule.startPlace.longitude,
             start_date: dateRange.startDate.toLocaleDateString('en-CA'),
             end_date: dateRange.endDate.toLocaleDateString('en-CA'),
             start_hour: dailySchedule.startHour,
             end_hour: dailySchedule.endHour,
-            user: user.id,
-            photo: photo
+            photo_url: photo,
+            user: 1,
         };
         console.log(tripData)
         console.log(places)
 
+        const accessToken = localStorage.getItem("access-token");
+        if (!accessToken) {
+            navigate('/');
+        }
+
         try {
             // await axios.post('http://localhost:5000/save-trip', tripData);
-            console.log('Trip saved to file');
+            const {data} = await axios.post('http://localhost:8000/api/itineraries/',
+                tripData, {
+                    headers: {
+                        'Content-type': 'application/json',
+                        'Authorization': `Bearer ${accessToken}`
+                    }
+                });
+            console.log('Trip saved',data);
 
             // const response = await axios.post(`/api/itineraries/`, tripData);
             // const tripID = response.data.id;
