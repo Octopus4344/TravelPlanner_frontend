@@ -1,38 +1,55 @@
 import React, { useEffect, useState } from 'react';
 import "./styles/UserPanel_style.css"
 import { useNavigate } from 'react-router-dom';
-import {trips, users} from "./mockData";
 import TripList from "./TripList";
+import axios from "axios";
 
-function UserPanel({ user, setUser }) {
+function UserPanel() {
     const navigate = useNavigate();
-    const [isLoading, setIsLoading] = useState(true);
+    const [trips, setTrips] = useState([]);
 
     useEffect(() => {
-        const storedUser = localStorage.getItem("user");
-        if (storedUser) {
-            setUser(JSON.parse(storedUser));
+        const accessToken = localStorage.getItem("access-token");
+        if (!accessToken) {
+            navigate('/');
         }
-        setIsLoading(false);
-    }, [setUser])
+        else{
+            (async () => {
+                try {
+                    const {data} = await axios.get('http://localhost:8000/api/itineraries/', {
+                        headers:{
+                            'accept': 'application/json',
+                        'Authorization': `Bearer ${accessToken}`
+                        }})
+                    setTrips(data)
+                    console.log(data)
+
+                    if (Array.isArray(data)) {
+                        console.log('Is an array')
+                        setTrips(data);
+                    } else {
+                        console.error('Expected data to be an array', data);
+                    }
+                } catch (e){
+                    console.log('an error occured')
+                }
+            })()
+        }
+    }, []);
 
 
     const handleLogout = () => {
-      setUser(null);
-      localStorage.removeItem("user");
+      localStorage.removeItem("accessToken");
+      localStorage.removeItem("refreshToken");
       navigate('/');
     };
 
-    if (!user) {
-        navigate('/login');
-        return null;
-    }
-
-    const userTrips = trips.filter(trip => trip.user === user.id);
 
     const handleCreateTrip = () => {
         navigate('/create');
     };
+
+    const userTrips = trips;
 
 
     return(
@@ -70,5 +87,4 @@ function UserPanel({ user, setUser }) {
 }
 
 export default UserPanel;
-
 

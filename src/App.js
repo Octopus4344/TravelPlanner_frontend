@@ -19,9 +19,9 @@ function App() {
         <Router>
             <Routes>
                 <Route path="/" element={<WelcomePage/>}/>
-                <Route path="/login" element={<LoginPage setUser={setUser} />} />
+                <Route path="/login" element={<LoginPage/>} />
                 <Route path="/signup" element={<SignUpPage setUser={setUser} />} />
-                <Route path="/user" element={<UserPanel user={user} setUser={setUser} />} />
+                <Route path="/user" element={<UserPanel />} />
                 <Route path="/create" element={<CreateTrip user={user} onTripCreated={(trip) => console.log(trip)} setUser={setUser}/> } />
                 <Route path="/trip/:tripId" element={<TripDetails />}/>
             </Routes>

@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { users } from './mockData';
 import axios from "axios";
 
-function LoginPage({ setUser }) {
+function LoginPage() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
@@ -20,12 +20,13 @@ function LoginPage({ setUser }) {
             const {data} = await axios.post('http://localhost:8000/api/token',
                 user, {
                     headers: {
-                        'Content-type': 'application/json',
+                        'Content-type': 'application/json'
                     }
                 });
             console.log(data)
-            localStorage.setItem("accessToken", data.access)
-            localStorage.setItem("refreshToken", data.refresh)
+            localStorage.setItem("access-token", data.access)
+            localStorage.setItem("refresh-token", data.refresh)
+            navigate("/user")
         }
         catch (error){
             console.error("something went wrong", error)
