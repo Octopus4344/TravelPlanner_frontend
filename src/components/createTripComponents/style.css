@@ -175,3 +175,21 @@
     margin: 10px;
     border-radius: 10px;
 }
+
+.suggestion-list{
+    height: 150px;
+    width: 400px;
+    margin: 10px 30px 0 50px;
+    overflow-y: auto;
+    position: absolute;
+    background-color: white;
+}
+
+.suggestion-list li{
+    padding: 10px;
+    cursor: pointer;
+}
+
+.suggestion-list li:hover{
+    background-color: var(--light-blue);
+}
