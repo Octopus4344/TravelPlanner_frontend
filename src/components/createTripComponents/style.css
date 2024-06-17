@@ -183,6 +183,9 @@
     overflow-y: auto;
     position: absolute;
     background-color: white;
+    -webkit-box-shadow: 0 11px 39px -14px rgba(66, 68, 90, 1);
+    -moz-box-shadow: 0 11px 39px -14px rgba(66, 68, 90, 1);
+    box-shadow: 0 11px 39px -14px rgba(66, 68, 90, 1);
 }
 
 .suggestion-list li{
