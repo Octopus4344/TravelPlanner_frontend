@@ -7,7 +7,7 @@ export const trips = [
     {
         id: 1,
         name: 'Trip to paris',
-        photo: 'https://via.placeholder.com/150',
+        photo: 'https://images.pexels.com/photos/421655/pexels-photo-421655.jpeg?auto=compress&cs=tinysrgb&h=350',
         hotel_coordinates: '',
         start_time: '07-03-2024',
         end_time: '07-05-2024',
