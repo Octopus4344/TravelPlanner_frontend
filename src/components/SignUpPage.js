@@ -2,19 +2,37 @@ import React from 'react';
 import "./styles/SignUpPage_style.css"
 import { useNavigate } from 'react-router-dom';
 import { users } from "./mockData";
+import axios from "axios";
 
-function SignUpPage({ setUser }) {
+function SignUpPage() {
     const [email, setEmail] = React.useState('');
     const [password, setPassword] = React.useState('');
     const [username, setUsername] = React.useState('');
     const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async e => {
         e.preventDefault();
-        const newUser = { id: users.length + 1, username, password, email, trips: [] };
-        users.push(newUser);
-        setUser(newUser);
-        navigate("/user");
+
+        const user = {
+            username : username,
+            password: password,
+            email: email
+        };
+        try {
+            const {data} = await axios.post('http://localhost:8000/api/register',
+                user, {
+                    headers: {
+                        'Content-type': 'application/json'
+                    }
+                });
+            console.log(data)
+            localStorage.setItem("access-token", data.access)
+            localStorage.setItem("refresh-token", data.refresh)
+            navigate("/user")
+        }
+        catch (error){
+            console.error("something went wrong", error)
+        }
     }
     return(
         <div className={"SignUpPage"}>
