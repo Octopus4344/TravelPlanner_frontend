@@ -5,7 +5,7 @@ import UserPanel from './components/UserPanel';
 import CreateTrip from "./components/CreateTrip";
 import TripDetails from "./components/TripDetails"
 import {
-    BrowserRouter as Router,
+    HashRouter as Router,
     Routes,
     Route,
 } from "react-router-dom";
