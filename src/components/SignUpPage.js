@@ -1,7 +1,6 @@
 import React from 'react';
 import "./styles/SignUpPage_style.css"
 import { useNavigate } from 'react-router-dom';
-import { users } from "./mockData";
 import axios from "axios";
 
 function SignUpPage() {
@@ -31,6 +30,9 @@ function SignUpPage() {
             navigate("/user")
         }
         catch (error){
+            if(error.response.status === 400){
+                alert("User already exist")
+            }
             console.error("something went wrong", error)
         }
     }

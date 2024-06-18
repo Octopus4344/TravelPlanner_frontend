@@ -1,6 +1,5 @@
     import React, { useState, useEffect } from "react";
     import { useParams } from "react-router-dom";
-    import axios, {get} from "axios";
     import mapboxgl from "mapbox-gl";
     import './styles/TripDetails_style.css'
     import 'mapbox-gl/dist/mapbox-gl.css'

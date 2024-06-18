@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from "react";
-import axios from 'axios'
 import SearchDestination from './createTripComponents/SearchDestination.js'
 import SelectDateRange from './createTripComponents/SelectDateRange.js'
 import SetDailySchedule from './createTripComponents/SetDailySchedule.js'

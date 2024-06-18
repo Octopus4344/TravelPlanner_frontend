@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import "./styles/LoginPage_style.css"
 import { useNavigate } from 'react-router-dom';
-import { users } from './mockData';
 import axios from "axios";
 
 function LoginPage() {
@@ -29,6 +28,9 @@ function LoginPage() {
             navigate("/user")
         }
         catch (error){
+            if(error.response.status === 401){
+                alert("Incorrect username or password")
+            }
             console.error("something went wrong", error)
         }
 

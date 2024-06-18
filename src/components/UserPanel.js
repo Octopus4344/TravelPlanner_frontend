@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import "./styles/UserPanel_style.css"
 import { useNavigate } from 'react-router-dom';
 import TripList from "./TripList";
-import axios from "axios";
 import axiosInstance from "./axiosInstance";
 
 function UserPanel() {
