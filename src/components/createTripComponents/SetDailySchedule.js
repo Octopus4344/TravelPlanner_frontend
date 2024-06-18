@@ -13,7 +13,9 @@ function SetDailySchedule({ onSet }) {
     }
 
     const isNextEnabled = () => {
-        return startHour && startPlace && endHour;
+        const dStartHour = new Date(`1970-01-01T${startHour}:00`)
+        const dEndHour = new Date(`1970-01-01T${endHour}:00`)
+        return startHour && startPlace && endHour && (dStartHour<dEndHour);
     }
 
     return (

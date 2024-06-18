@@ -134,7 +134,7 @@ function CreateTrip({ onTripCreated }) {
                     }
                 });
 
-            navigate('/user')
+            navigate(`/trip/${tripId}`)
 
         } catch (error){
             console.error('Error creating trip', error);
