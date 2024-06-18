@@ -3,6 +3,7 @@ import "./styles/UserPanel_style.css"
 import { useNavigate } from 'react-router-dom';
 import TripList from "./TripList";
 import axios from "axios";
+import axiosInstance from "./axiosInstance";
 
 function UserPanel() {
     const navigate = useNavigate();
@@ -16,10 +17,10 @@ function UserPanel() {
         else{
             (async () => {
                 try {
-                    const {data} = await axios.get('http://localhost:8000/api/itineraries/', {
+                    const {data} = await axiosInstance.get('http://localhost:8000/api/itineraries/', {
                         headers:{
                             'accept': 'application/json',
-                        'Authorization': `Bearer ${accessToken}`
+                            'Authorization': `Bearer ${accessToken}`
                         }})
                     setTrips(data)
                     console.log(data)

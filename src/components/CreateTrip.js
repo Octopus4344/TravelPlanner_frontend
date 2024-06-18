@@ -6,6 +6,7 @@ import SetDailySchedule from './createTripComponents/SetDailySchedule.js'
 import SearchPlaces from './createTripComponents/SearchPlaces.js'
 import { useNavigate } from "react-router-dom";
 import { createClient } from "pexels"
+import axiosInstance from "./axiosInstance";
 
 const pexelsClient = createClient(process.env.REACT_APP_PEXELS_API_KEY)
 
@@ -83,7 +84,7 @@ function CreateTrip({ onTripCreated }) {
         }
 
         try {
-            const {data} = await axios.post('http://localhost:8000/api/itineraries/',
+            const {data} = await axiosInstance.post('http://localhost:8000/api/itineraries/',
                 tripData, {
                     headers: {
                         'Content-type': 'application/json',
@@ -95,7 +96,7 @@ function CreateTrip({ onTripCreated }) {
 
             const sendPlace = async (place) => {
                 try{
-                    const response = await axios.post('http://localhost:8000/api/places/', {
+                    const response = await axiosInstance.post('http://localhost:8000/api/places/', {
                         ...place
                     }, {
                         headers: {
@@ -126,7 +127,7 @@ function CreateTrip({ onTripCreated }) {
             }
 
 
-            const response = await axios.post('http://localhost:8000/api/optimize-route/',
+            const response = await axiosInstance.post('http://localhost:8000/api/optimize-route/',
                 itineraryData, {
                     headers: {
                         'Content-type': 'application/json',

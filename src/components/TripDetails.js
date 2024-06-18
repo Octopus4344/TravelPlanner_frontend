@@ -5,6 +5,7 @@ import mapboxgl from "mapbox-gl";
 import './styles/TripDetails_style.css'
 import 'mapbox-gl/dist/mapbox-gl.css'
 import { useNavigate } from 'react-router-dom';
+import axiosInstance from "./axiosInstance";
 
 
 mapboxgl.accessToken = 'pk.eyJ1Ijoib2N0b3B1czEiLCJhIjoiY2x4Zjhyanc3MG0wNzJsc2hiNXd4aWtlZyJ9.Fqr1-VG0YG-1bWY70bAy_Q'
@@ -25,7 +26,7 @@ const TripDetails = () => {
         else{
             (async () => {
                 try {
-                    const {data} = await axios.get(`http://localhost:8000/api/itineraries/${tripId}/`, {
+                    const {data} = await axiosInstance.get(`http://localhost:8000/api/itineraries/${tripId}/`, {
                         headers:{
                             'accept': 'application/json',
                             'Authorization': `Bearer ${accessToken}`
@@ -48,7 +49,7 @@ const TripDetails = () => {
         else{
             (async () => {
                 try {
-                    const {data} = await axios.get(`http://localhost:8000/api/itinerary/${tripId}/visits/`, {
+                    const {data} = await axiosInstance.get(`http://localhost:8000/api/itinerary/${tripId}/visits/`, {
                         headers:{
                             'accept': 'application/json',
                             'Authorization': `Bearer ${accessToken}`
@@ -71,7 +72,7 @@ const TripDetails = () => {
                 container: 'map',
                 style: 'mapbox://styles/mapbox/streets-v11',
                 center: [dayVisits[0].longitude, dayVisits[0].latitude],
-                zoom: 10
+                zoom: 13
             });
 
             dayVisits.forEach(visit => {
