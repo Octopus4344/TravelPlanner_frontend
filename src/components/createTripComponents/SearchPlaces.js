@@ -11,15 +11,12 @@ function SearchPlaces({ destination, onAdd }) {
             name: place.text,
             latitude: place.center[1],
             longitude: place.center[0],
-            place_name: place.place_name,
-            feature_type: place.place_type[0],
             category: place.properties?.category || 'Unknown',
-            address: place.properties?.address || "Unknown"
-
+            description: place.properties?.address || "Unknown"
         };
 
-        console.log(place);
-        console.log(selectedPlace);
+        console.log('my place',place);
+        console.log('selected',selectedPlace);
 
             setPlaces([...places, selectedPlace]);
             onAdd(selectedPlace);

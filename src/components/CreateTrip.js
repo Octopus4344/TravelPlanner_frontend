@@ -83,7 +83,6 @@ function CreateTrip({ onTripCreated }) {
         }
 
         try {
-            // await axios.post('http://localhost:5000/save-trip', tripData);
             const {data} = await axios.post('http://localhost:8000/api/itineraries/',
                 tripData, {
                     headers: {
@@ -92,14 +91,48 @@ function CreateTrip({ onTripCreated }) {
                     }
                 });
             console.log('Trip saved',data);
+            const tripId = data.id
 
-            // const response = await axios.post(`/api/itineraries/`, tripData);
-            // const tripID = response.data.id;
-            //
-            // await axios.post('/api/itineraries/${tripId}/add_places/', { places });
-            //
-            // console.log('Trip created successfully', response.data);
-            // onTripCreated(response.data);
+            const sendPlace = async (place) => {
+                try{
+                    const response = await axios.post('http://localhost:8000/api/places/', {
+                        ...place
+                    }, {
+                        headers: {
+                            'Content-type': 'application/json',
+                            'Authorization': `Bearer ${accessToken}`
+                    }
+                    });
+                    return response.data;
+                }catch (e){
+                    console.error('error',e)
+                }
+            }
+
+            const placePromises = places.map(sendPlace);
+            const placeResponses = await Promise.all(placePromises)
+
+            console.log('places: ',placeResponses)
+
+            const placesData = placeResponses.map(placeResponse => ({
+                place_id: placeResponse.id,
+                duration: 60
+            }));
+
+
+            const itineraryData = {
+                itinerary_id: tripId,
+                places:placesData
+            }
+
+
+            const response = await axios.post('http://localhost:8000/api/optimize-route/',
+                itineraryData, {
+                    headers: {
+                        'Content-type': 'application/json',
+                        'Authorization': `Bearer ${accessToken}`
+                    }
+                });
 
             navigate('/user')
 
