@@ -6,7 +6,6 @@
     import polyline from "@mapbox/polyline";
     import { useNavigate } from 'react-router-dom';
     import axiosInstance from "./axiosInstance";
-    import axios from "axios";
 
 
     mapboxgl.accessToken = 'pk.eyJ1Ijoib2N0b3B1czEiLCJhIjoiY2x4Zjhyanc3MG0wNzJsc2hiNXd4aWtlZyJ9.Fqr1-VG0YG-1bWY70bAy_Q'
