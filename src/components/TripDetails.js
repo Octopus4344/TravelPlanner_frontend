@@ -162,53 +162,7 @@
 
         const days = [...new Set(visits.map(visit => visit.day))]
         console.log('visits: ', visits)
-        //
-        //
-        // useEffect(() => {
-        //     const accessToken = localStorage.getItem("access-token");
-        //     if (!accessToken) {
-        //         navigate('/');
-        //     }
-        //     else{
-        //         (async () => {
-        //             const getRoutes = async (day) => {
-        //                 console.log('day:',day)
-        //             try{
-        //                 console.log('day:',day)
-        //                 const response = await axiosInstance.post(`http://localhost:8000/api/itinerary/${tripId}/daily-routes/${day}`, {
-        //                     ...day
-        //                 }, {
-        //                     headers: {
-        //                         'Content-type': 'application/json',
-        //                         'Authorization': `Bearer ${accessToken}`
-        //                 }
-        //                 });
-        //                 return response.data;
-        //             }catch (e){
-        //                 console.error('error',e)
-        //             }
-        //         }
-        //
-        //         const routePromises = days.map(getRoutes);
-        //         const routeResponses = await Promise.all(routePromises)
-        //
-        //         console.log('routes v: ', routeResponses)
-        //
-        //         const placesData = routeResponses.map(routeResponse => ({
-        //             day: routeResponse.day,
-        //             route: routeResponse.geometry
-        //
-        //         }));
-        //
-        //         setRoutes(placesData);
-        //
-        //
-        //         })()
-        //
-        //     }
-        // }, []);
-        //
-        // console.log('routes', routes)
+
 
 
 
@@ -229,9 +183,6 @@
                                 {selectedDay === day && (
                                     <div className={"visit-list-container"}>
                                         {visits.filter(visit => visit.day === day).map((visit, index) => (
-                                            // <div key={visit.id} className={'visit-item'}>
-                                            //     {visit.start_time} - {visit.name}
-                                            // </div>
                                             <div key={index} className={'visit-item'}>
                                                 <h3>{visit.start_time} - {visit.place_name}</h3>
                                             </div>

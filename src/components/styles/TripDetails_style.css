@@ -65,6 +65,12 @@
     align-items: flex-start;
 }
 
+.headline-container h1 {
+    font-size: 35px;
+    max-width: 500px;
+    overflow-x: auto;
+}
+
 .headline-container button{
     align-self: flex-start;
     margin-left: 0;
