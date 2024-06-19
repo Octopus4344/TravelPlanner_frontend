@@ -116,7 +116,6 @@ function CreateTrip({ onTripCreated }) {
 
             const placesData = placeResponses.map(placeResponse => ({
                 place_id: placeResponse.id,
-                duration: 60
             }));
 
 
