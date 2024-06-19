@@ -35,7 +35,7 @@ function UserPanel() {
                 }
             })()
         }
-    }, []);
+    }, [navigate]);
 
 
     const handleLogout = () => {

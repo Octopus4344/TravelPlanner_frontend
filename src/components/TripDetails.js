@@ -15,9 +15,7 @@
         const { tripId } = useParams();
         const [visits, setVisits] = useState([])
         const [selectedDay, setSelectedDay] = useState(null)
-        const [title, setTitle] = useState('')
         const [trip, setTrip] = useState({})
-        const [routes, setRoutes] = useState([])
 
         useEffect(() => {
             const accessToken = localStorage.getItem("access-token");
