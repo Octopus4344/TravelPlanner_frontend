@@ -6,6 +6,7 @@
     import polyline from "@mapbox/polyline";
     import { useNavigate } from 'react-router-dom';
     import axiosInstance from "./axiosInstance";
+    import axios from "axios";
 
 
     mapboxgl.accessToken = 'pk.eyJ1Ijoib2N0b3B1czEiLCJhIjoiY2x4Zjhyanc3MG0wNzJsc2hiNXd4aWtlZyJ9.Fqr1-VG0YG-1bWY70bAy_Q'
@@ -163,6 +164,29 @@
         const days = [...new Set(visits.map(visit => visit.day))]
         console.log('visits: ', visits)
 
+        const handleDelete = async e => {
+        e.preventDefault();
+        const accessToken = localStorage.getItem("access-token");
+            if (!accessToken) {
+                navigate('/');
+            }
+        try {
+            const response = await axiosInstance.delete(`https://travel-planner-backend.sharkserver.kowalinski.dev/api/itineraries/${tripId}/`,
+                 {
+                    headers: {
+                        'accept': 'application/json',
+                        'Authorization': `Bearer ${accessToken}`
+                    }
+                });
+            console.log(response)
+            navigate("/user")
+        }
+        catch (error){
+            console.error("something went wrong", error)
+        }
+
+    }
+
 
 
 
@@ -193,6 +217,7 @@
                             </div>
                         ))}
                     </div>
+                    <button className={'delete-button'} onClick={handleDelete}>Delete</button>
                 </div>
                 <div id={'map'} className={'map-container'}></div>
 

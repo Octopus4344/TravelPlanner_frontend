@@ -70,7 +70,7 @@ function SearchPlaces({ destination, onAdd }) {
                 <ul>
                     {places.map((place, index) => (
                         <li key={index}>
-                            {place.name} - {place.address}
+                            {place.name} - {place.description}
                         </li>
                     ))}
                 </ul>

@@ -97,3 +97,20 @@
     width: 40px;
 }
 
+.delete-button{
+    width: 110px;
+    height: 40px;
+    background-color: azure;
+    border: solid var(--grey);
+    border-radius: 15px;
+    color: red;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.delete-button:hover{
+    background-color: red;
+    color: var(--light-text-color);
+}
