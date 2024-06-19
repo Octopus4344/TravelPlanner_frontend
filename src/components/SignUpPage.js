@@ -18,7 +18,7 @@ function SignUpPage() {
             email: email
         };
         try {
-            const {data} = await axios.post('http://localhost:8000/api/register',
+            const {data} = await axios.post('https://travel-planner-backend.sharkserver.kowalinski.dev/api/register',
                 user, {
                     headers: {
                         'Content-type': 'application/json'

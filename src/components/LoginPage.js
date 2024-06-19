@@ -16,7 +16,7 @@ function LoginPage() {
             password: password
         };
         try {
-            const {data} = await axios.post('http://localhost:8000/api/token',
+            const {data} = await axios.post('https://travel-planner-backend.sharkserver.kowalinski.dev/api/token',
                 user, {
                     headers: {
                         'Content-type': 'application/json'

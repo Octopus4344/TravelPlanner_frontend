@@ -16,7 +16,7 @@ function UserPanel() {
         else{
             (async () => {
                 try {
-                    const {data} = await axiosInstance.get('http://localhost:8000/api/itineraries/', {
+                    const {data} = await axiosInstance.get('https://travel-planner-backend.sharkserver.kowalinski.dev/api/itineraries/', {
                         headers:{
                             'accept': 'application/json',
                             'Authorization': `Bearer ${accessToken}`

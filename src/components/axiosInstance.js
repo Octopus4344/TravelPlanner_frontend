@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosInstance = axios.create({
-    baseURL: 'http://localhost:8000'
+    baseURL: 'https://travel-planner-backend.sharkserver.kowalinski.dev'
 })
 
 
@@ -17,7 +17,7 @@ axiosInstance.interceptors.response.use(
             originalRequest._retry = true;
             try {
                 const refreshToken = localStorage.getItem("refresh-token");
-                const response = await axios.post('http://localhost:8000/api/refresh', {refresh: refreshToken});
+                const response = await axios.post('https://travel-planner-backend.sharkserver.kowalinski.dev/api/refresh', {refresh: refreshToken});
                 localStorage.setItem('access-token', response.data.access);
                 axiosInstance.defaults.headers.common['Authorization'] = `Bearer ${response.data.access}`
                 console.log("token refreshed")

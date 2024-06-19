@@ -27,7 +27,7 @@
             else{
                 (async () => {
                     try {
-                        const {data} = await axiosInstance.get(`http://localhost:8000/api/itineraries/${tripId}/`, {
+                        const {data} = await axiosInstance.get(`http://travel-planner-backend.sharkserver.kowalinski.dev/api/itineraries/${tripId}/`, {
                             headers:{
                                 'accept': 'application/json',
                                 'Authorization': `Bearer ${accessToken}`
@@ -50,7 +50,7 @@
             else{
                 (async () => {
                     try {
-                        const {data} = await axiosInstance.get(`http://localhost:8000/api/itinerary/${tripId}/visits/`, {
+                        const {data} = await axiosInstance.get(`https://travel-planner-backend.sharkserver.kowalinski.dev/api/itinerary/${tripId}/visits/`, {
                             headers:{
                                 'accept': 'application/json',
                                 'Authorization': `Bearer ${accessToken}`
@@ -76,7 +76,7 @@
                 }
 
                 try{
-                    const response = await axiosInstance.get(`http://localhost:8000/api/itinerary/${tripId}/daily-routes/${day}`, {
+                    const response = await axiosInstance.get(`https://travel-planner-backend.sharkserver.kowalinski.dev/api/itinerary/${tripId}/daily-routes/${day}`, {
                         day
                     },{
                         headers: {
